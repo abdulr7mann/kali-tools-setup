@@ -38,5 +38,9 @@ wget -c https://github.com/hAPI-hacker/Hacking-APIs/archive/refs/heads/main.zip 
 unzip HackingAPIs.zip -d /opt/ && \
 rm -f HackingAPIs.zip
 
+sudo ln -s /usr/share/seclists /opt
+sudo ln -s /usr/share/seclists ~/
+sudo ln -s /usr/share/wordlists ~/
+sudo ln -s /usr/share/wordlists /opt
 # Change ownership of /opt directory
 sudo chown -R abdulr7man:abdulr7man /opt
