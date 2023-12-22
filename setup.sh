@@ -8,7 +8,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 
 # Install necessary packages
-sudo apt-get install -y docker.io docker-compose golang-go git python3-venv apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+sudo apt-get install -y docker.io docker-compose golang-go git python3-venv arjun apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
 # Add a new user
 sudo adduser abdulr7man
@@ -26,11 +26,10 @@ sudo ln -s /opt/Postman/Postman /usr/bin/postman
 sudo pip3 install mitmproxy2swagger termcolor cprint pycryptodomex requests
 
 # Clone required GitHub repositories
-git clone https://github.com/ticarpi/jwt_tool /opt/jwt_tool
+git clone https://github.com/ticarpi/jwt_tool /opt/jwt_tool && chmod +x /opt/jwt_tool/jwt_tool.py
 sudo ln -s /opt/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
-git clone https://github.com/assetnote/kiterunner.git /opt/kiterunner
-sudo ln -s /opt/kiterunner/dist/kr /usr/bin/kr
-git clone https://github.com/s0md3v/Arjun.git /opt/Arjun
+git clone https://github.com/assetnote/kiterunner.git /opt/kiterunner && cd /opt/kiterunner && make build && ln -s /opt/kiterunner/dist/kr /usr/local/bin/kr
+#git clone https://github.com/s0md3v/Arjun.git /opt/Arjun
 git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapAutomator
 sudo ln -s /opt/nmapAutomator/nmapAutomator.sh /usr/bin/nmapAutomator
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
