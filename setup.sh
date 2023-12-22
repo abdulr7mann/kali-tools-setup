@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Adding Subl apt repository package
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
 # Update package lists
 sudo apt update
 
 # Install necessary packages
-sudo apt-get install -y docker.io docker-compose golang-go git  burpsuite zaproxy
+sudo apt-get install -y docker.io docker-compose golang-go git python3-venv apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
 # Add a new user
 sudo adduser abdulr7man
@@ -27,12 +31,9 @@ sudo ln -s /opt/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
 git clone https://github.com/assetnote/kiterunner.git /opt/kiterunner
 sudo ln -s /opt/kiterunner/dist/kr /usr/bin/kr
 git clone https://github.com/s0md3v/Arjun.git /opt/Arjun
-
-# Download and extract SecLists
-wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip && \
-unzip SecList.zip -d /opt/ && \
-rm -f SecList.zip
-
+git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapAutomator
+sudo ln -s /opt/nmapAutomator/nmapAutomator.sh /usr/bin/nmapAutomator
+python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 # Download and extract Hacking APIs
 wget -c https://github.com/hAPI-hacker/Hacking-APIs/archive/refs/heads/main.zip -O HackingAPIs.zip && \
 unzip HackingAPIs.zip -d /opt/ && \
