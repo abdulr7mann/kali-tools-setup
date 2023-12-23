@@ -8,7 +8,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 
 # Install necessary packages
-sudo apt-get install -y docker.io docker-compose golang-go git python3-venv arjun apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+sudo apt-get install -y docker.io docker-compose cargo golang-go git python3-venv arjun apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
 # Add a new user
 sudo adduser abdulr7man
@@ -23,7 +23,7 @@ tar -xvzf postman-linux-x64.tar.gz -C /opt && \
 sudo ln -s /opt/Postman/Postman /usr/bin/postman
 
 # Install Python dependencies
-sudo pip3 install mitmproxy2swagger termcolor cprint pycryptodomex requests
+sudo pip3 install mitmproxy2swagger termcolor cprint pycryptodomex requests semgrep
 
 # Clone required GitHub repositories
 git clone https://github.com/ticarpi/jwt_tool /opt/jwt_tool && chmod +x /opt/jwt_tool/jwt_tool.py
@@ -33,6 +33,9 @@ git clone https://github.com/assetnote/kiterunner.git /opt/kiterunner && cd /opt
 git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapAutomator
 sudo ln -s /opt/nmapAutomator/nmapAutomator.sh /usr/bin/nmapAutomator
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
+
+cargo install cherrybomb
+
 # Download and extract Hacking APIs
 wget -c https://github.com/hAPI-hacker/Hacking-APIs/archive/refs/heads/main.zip -O HackingAPIs.zip && \
 unzip HackingAPIs.zip -d /opt/ && \
