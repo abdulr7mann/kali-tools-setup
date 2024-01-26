@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# install ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Getting tmux.conf
+wget https://raw.githubusercontent.com/abdulr7mann/kali-tools-setup/main/.tmux.conf -O ~/.tmux.conf
+
+# URLs to download hacking_cheatsheet
+urls=(
+  "https://github.com/abdulr7mann/hackpedia/raw/main/hacking_cheatsheet/oscp_cheatsheet.zip"
+  "https://github.com/abdulr7mann/hackpedia/raw/main/hacking_cheatsheet/oscp_cheatsheet.z01"
+  "https://github.com/abdulr7mann/hackpedia/raw/main/hacking_cheatsheet/oscp_cheatsheet.z02"
+  "https://github.com/abdulr7mann/hackpedia/raw/main/hacking_cheatsheet/oscp_cheatsheet.z03"
+  "https://github.com/abdulr7mann/hackpedia/raw/main/hacking_cheatsheet/oscp_cheatsheet.z04"
+  "https://github.com/abdulr7mann/hackpedia/raw/main/hacking_cheatsheet/oscp_cheatsheet.z05"
+)
+# Loop through URLs and download each file
+for url in "${urls[@]}"; do
+  wget "$url"
+done
+
+
 # Adding Subl apt repository package
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -8,7 +29,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 
 # Install necessary packages
-sudo apt-get install -y docker.io docker-compose cargo golang-go git python3-venv arjun apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+sudo apt-get install -y tmux docker.io docker-compose cargo golang-go git python3-venv arjun apt-transport-https sublime-text burpsuite zaproxy gobuster ffuf seclists curl dnsrecon enum4linux feroxbuster wfuzz impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
 # Add a new user
 sudo adduser abdulr7man
